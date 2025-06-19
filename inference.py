@@ -5,7 +5,7 @@ import torch
 from ultralytics import YOLO
 
 
-def inference_sahi(filepath_src, file_dir_out, filename_out, device = "cuda:0", save=False, hide_labels=True, hide_conf=True):
+def inference_sahi(filepath_src, file_dir_out, filename_out, device = "cuda:0", save=False):
     """
     :param filepath_src: строка содержащая путь до файла
     :param file_dir_out: строка содержащая путь до папки, в которую положится картинка с детекцией
@@ -39,7 +39,7 @@ def inference_sahi(filepath_src, file_dir_out, filename_out, device = "cuda:0", 
         result.export_visuals(
             export_dir=file_dir_out,
             file_name=filename_out,
-            hide_labels=hide_labels,
-            hide_conf=hide_conf,
+            hide_labels=True,
+            hide_conf=True,
             rect_th=2,
         )

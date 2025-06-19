@@ -2,3 +2,5 @@ sahi
 opencv-python
 ultralytics
 torch
+scikit-image
+imagecodecs

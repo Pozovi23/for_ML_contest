@@ -9,6 +9,12 @@ cd for_ML_contest
 python3 -m venv venv
 source venv/bin/activate
 ```
+
+для виндоус юзеров создание и активация идет вот так вроде бы
+```
+python3 -m venv venv
+venv\Scripts\activate.bat
+```
 )
 
 и в виртуальном окружении ставите зависимости

@@ -16,3 +16,7 @@ save - сохранять ли картинку в file_dir_out/filename_out
 hide_labels - скрывать название класса
 
 hide_conf - скрывать confidence
+
+сначала pip install -r requirements.txt
+
+потом уже используете функцию

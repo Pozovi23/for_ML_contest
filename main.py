@@ -1,5 +1,6 @@
 import argparse
 from inference import inference_sahi
+import os
 
 def main():
     parser = argparse.ArgumentParser(description='Run SAHI inference on an image.')
@@ -11,6 +12,7 @@ def main():
 
     args = parser.parse_args()
 
+    os.makedirs(args.file_dir_out, exist_ok=True)
     inference_sahi(
         filepath_src=args.filepath_src,
         file_dir_out=args.file_dir_out,

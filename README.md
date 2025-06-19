@@ -1,7 +1,8 @@
 функция для инференса
 
 inference_sahi(filepath_src, file_dir_out, filename_out, device = "cuda:0", save=False, hide_labels=True, hide_conf=True)
-аргументы, которые вам нужно установить само
+
+аргументы, которые вам нужно установить самостоятельно
 
 filepath_src - строка содержащая путь до файла
 
@@ -12,6 +13,8 @@ filename_out - строка с названием выходного файла 
 device - ну или "cuda:0" (в дефолте) или 'cpu'
 
 save - сохранять ли картинку в file_dir_out/filename_out
+
+ну и доп аргументы
 
 hide_labels - скрывать название класса
 

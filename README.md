@@ -4,22 +4,6 @@ inference_sahi(filepath_src, file_dir_out, filename_out, device = "cuda:0", save
 
 аргументы, которые вам нужно установить самостоятельно
 
-filepath_src - строка содержащая путь до файла
-
-file_dir_out - строка содержащая путь до папки, в которую положиться картинка с детекцией
-
-filename_out - строка с названием выходного файла (наша картинка с детекцией)
-
-device - ну или "cuda:0" (в дефолте) или 'cpu'
-
-save - сохранять ли картинку в file_dir_out/filename_out
-
-ну и доп аргументы
-
-hide_labels - скрывать название класса
-
-hide_conf - скрывать confidence
-
 -------------------------------------------------
 
 `git clone https://github.com/Pozovi23/for_ML_contest.git`
@@ -29,8 +13,6 @@ hide_conf - скрывать confidence
 и в виртуальном окружении ставите зависимости
 `pip install -r requirements.txt`
 
-потом уже используете функцию
+необходимая вам функция лежит в inference.py и называется inference_sahi
 
----------------------------------------
-
-в main.py пример
+в main.py представлен пример её использования

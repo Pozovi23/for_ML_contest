@@ -6,6 +6,15 @@ from ultralytics import YOLO
 
 
 def inference_sahi(filepath_src, file_dir_out, filename_out, device = "cuda:0", save=False, hide_labels=True, hide_conf=True):
+    """
+    :param filepath_src: строка содержащая путь до файла
+    :param file_dir_out: строка содержащая путь до папки, в которую положится картинка с детекцией
+    :param filename_out: строка с названием выходного файла (наша картинка с детекцией)
+    :param device: "cuda:0" (в дефолте) или 'cpu'
+    :param save: сохранять ли картинку в file_dir_out/filename_out
+    :param hide_labels: скрывать название класса на изображении
+    :param hide_conf: скрывать confidence на изображении
+    """
     category_mapping = {"0": "person"}
     detection_model = AutoDetectionModel.from_pretrained(
         model_type="yolov8",

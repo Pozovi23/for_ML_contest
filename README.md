@@ -20,8 +20,6 @@ venv\Scripts\activate.bat
 и в виртуальном окружении ставите зависимости
 ```pip install -r requirements.txt```
 
-Пример запуска на одной фотке
-```python3 main.py "test/train_BLA_0006_JPG.rf.994cd3b5e58adc3c8a7659979139b424.jpg" --file_dir_out="./output" --filename_out="out_sahi" --device="cpu" --save=True```
+Пример запуска на всех фотках из папки test
+```python3 main.py "test" --file_dir_out="./output" --device="cuda:0"```
 
-------------------------------------------------------------------------------------------------
-но вообще функция для инференса лежит в inference.py и называется inference_sahi, там же и описание аргументов

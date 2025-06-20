@@ -3,9 +3,10 @@ from sahi.predict import get_sliced_prediction
 import cv2
 import torch
 from ultralytics import YOLO
+import os
 
 
-def inference_sahi(filepath_src, file_dir_out, filename_out, device = "cuda:0", save=False):
+def inference_sahi(filepath_src, file_dir_out, filename_out, device = "cuda:0"):
     """
     :param filepath_src: строка содержащая путь до файла
     :param file_dir_out: строка содержащая путь до папки, в которую положится картинка с детекцией
@@ -35,11 +36,19 @@ def inference_sahi(filepath_src, file_dir_out, filename_out, device = "cuda:0", 
         postprocess_match_threshold=0.6,
     )
 
-    if save:
-        result.export_visuals(
-            export_dir=file_dir_out,
-            file_name=filename_out,
-            hide_labels=True,
-            hide_conf=True,
-            rect_th=2,
-        )
+    txt_path = os.path.join(file_dir_out, filename_out + '.txt')
+
+    img = cv2.imread(filepath_src)
+    img_height, img_width = img.shape[:2]
+
+    with open(txt_path, 'w') as f:
+        for prediction in result.object_prediction_list:
+            bbox = prediction.bbox
+            x_center = (bbox.minx + bbox.maxx) / 2 / img_width
+            y_center = (bbox.miny + bbox.maxy) / 2 / img_height
+            width = (bbox.maxx - bbox.minx) / img_width
+            height = (bbox.maxy - bbox.miny) / img_height
+
+            class_id = 0
+
+            f.write(f"{class_id} {x_center:.6f} {y_center:.6f} {width:.6f} {height:.6f}\n")
